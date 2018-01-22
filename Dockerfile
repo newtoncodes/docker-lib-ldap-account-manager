@@ -15,6 +15,8 @@ RUN sed -i 's,DocumentRoot .*,DocumentRoot /usr/share/ldap-account-manager,' /et
 RUN ln -sf /proc/1/fd/1 /var/log/apache2/access.log
 RUN ln -sf /proc/1/fd/2 /var/log/apache2/error.log
 
+COPY password.php /usr/share/ldap-account-manager/password.php
+
 COPY entrypoint.sh /usr/bin/entrypoint
 RUN chmod +x /usr/bin/entrypoint
 
