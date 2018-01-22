@@ -1,4 +1,5 @@
 FROM ubuntu:trusty
+# TODO: change to 16.04 when next version of lam is released (5.3)
 
 ENV CONFIG=/etc/ldap-account-manager
 ENV DATA=/var/lib/ldap-account-manager
