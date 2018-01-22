@@ -10,6 +10,14 @@ if [ -f /var/lib/ldap-account-manager/vars.env ]; then
     export LDAP_USERS_DN=${LDAP_USERS_DN:-ou=users,dc=example,dc=org}
     export LDAP_SEARCH_DN=${LDAP_SEARCH_DN:-cn=admin,dc=example,dc=org}
     export LDAP_SEARCH_PASSWORD=${LDAP_SEARCH_PASSWORD:-admin}
+else
+    export LDAP_ORG=${LDAP_ORG:-Example Org}
+    export LDAP_DOMAIN=${LDAP_DOMAIN:-example.org}
+    export LDAP_HOST=${LDAP_HOST:-localhost}
+    export LDAP_PORT=${LDAP_PORT:-389}
+    export LDAP_USERS_DN=${LDAP_USERS_DN:-ou=users,dc=example,dc=org}
+    export LDAP_SEARCH_DN=${LDAP_SEARCH_DN:-cn=admin,dc=example,dc=org}
+    export LDAP_SEARCH_PASSWORD=${LDAP_SEARCH_PASSWORD:-admin}
 
     echo "
 export LDAP_ORG=$LDAP_ORG
@@ -21,14 +29,6 @@ export LDAP_SEARCH_DN=$LDAP_SEARCH_DN
 export LDAP_SEARCH_PASSWORD=$LDAP_SEARCH_PASSWORD
     " > /var/lib/ldap-account-manager/vars.env
 fi
-
-export LDAP_ORG=${LDAP_ORG:-Example Org}
-export LDAP_DOMAIN=${LDAP_DOMAIN:-example.org}
-export LDAP_HOST=${LDAP_HOST:-localhost}
-export LDAP_PORT=${LDAP_PORT:-389}
-export LDAP_USERS_DN=${LDAP_USERS_DN:-ou=users,dc=example,dc=org}
-export LDAP_SEARCH_DN=${LDAP_SEARCH_DN:-cn=admin,dc=example,dc=org}
-export LDAP_SEARCH_PASSWORD=${LDAP_SEARCH_PASSWORD:-admin}
 
 if [ "$1" = "httpd" ]; then
     for f in /var/lib/ldap-account-manager /etc/ldap-account-manager; do
