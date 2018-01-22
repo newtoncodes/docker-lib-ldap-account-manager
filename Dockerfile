@@ -1,10 +1,11 @@
-FROM newtoncodes/php:5.6
+FROM ubuntu:trusty
 
-RUN apt-get update && \
-    DEBIAN_FRONTEND="noninteractive" apt-get upgrade -y && \
-    DEBIAN_FRONTEND="noninteractive" apt-get install -y ldap-account-manager apache2 apache2-utils
-#RUN DEBIAN_FRONTEND="noninteractive" apt-get purge -y php7.2 php7.2-*
-RUN DEBIAN_FRONTEND="noninteractive" apt-get install -y php5.6-imap php5.6-imagick php5.6-json php5.6-gd php5.6-opcache php5.6-readline php5.6-cli php5.6-ldap php5.6-common php-fpdf
+ENV CONFIG=/etc/ldap-account-manager
+ENV DATA=/var/lib/ldap-account-manager
+
+RUN apt-get update && apt-get upgrade -y && apt-get install -y ldap-account-manager php5-imap
+RUN php5enmod imap
+
 RUN mv /etc/ldap-account-manager /etc/ldap-account-manager.original
 RUN mv /var/lib/ldap-account-manager /var/lib/ldap-account-manager.original
 
