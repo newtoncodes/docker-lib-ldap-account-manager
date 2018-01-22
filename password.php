@@ -99,7 +99,7 @@ if (isset($_POST['submitted'])) {
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 
-        <title><?= LDAP_ORG ?> password change</title>
+        <title><?= LDAP_ORG ?> password</title>
 
         <style type="text/css">
             body { font-family: Verdana,Arial,Courier New; font-size: 14px; }
@@ -112,7 +112,7 @@ if (isset($_POST['submitted'])) {
 
     <body>
         <div id="container">
-            <h2><?= LDAP_ORG ?> password change</h2>
+            <h2><?= LDAP_ORG ?> password</h2>
 
             <p>
                 Your new password must be 8 characters long or longer and have:<br/>
